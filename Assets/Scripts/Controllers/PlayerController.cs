@@ -3,13 +3,22 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    #region Fields
     private bool isStartMove;
+    #endregion
 
+
+
+    #region Unity
     void Awake()
     {
         isStartMove = true;
     }
+    #endregion
 
+
+
+    #region Public MEthod
     public void StopMoving()
     {
         StopAllCoroutines();
@@ -39,4 +48,5 @@ public class PlayerController : Singleton<PlayerController>
             }
         }
     }
+    #endregion
 }

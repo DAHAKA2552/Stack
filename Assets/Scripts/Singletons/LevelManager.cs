@@ -28,6 +28,7 @@ public class LevelManager : Singleton<LevelManager>
     #endregion
 
 
+
     #region Unity
     void Start()
     {
@@ -104,6 +105,7 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
     #endregion
+
 
 
     #region Private Function
@@ -271,6 +273,7 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     #endregion 
+
 
 
     public void CreateStartPlatform()

@@ -3,10 +3,14 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
+    #region Fields
     [SerializeField] private Component[] managers;
     [SerializeField] private Camera camera;
+    #endregion
 
+
+
+    #region Unity
     void Awake()
     {
         InitializationComponents(managers);
@@ -26,13 +30,21 @@ public class GameManager : Singleton<GameManager>
             }
         }
     }
+    #endregion
 
+
+
+    #region Private Method
     void CreateComponents(Component pref)
     {
         var obj = Instantiate(pref, transform);
         obj.name = pref.name;
     }
+    #endregion
 
+
+
+    #region Public Method
     public IEnumerator MoveCamera()
     {
         Vector3 newCameraPosition;
@@ -49,4 +61,5 @@ public class GameManager : Singleton<GameManager>
         LevelManager.Instance.CreateStartPlatform();
         PlayerPrefs.SetInt("Score", 0);
     }
+    #endregion
 }

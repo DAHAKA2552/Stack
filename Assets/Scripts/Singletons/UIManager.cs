@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
 {
+    #region Fields
     [SerializeField] private Component[] screens;
     [SerializeField] private Canvas canvas;
     [SerializeField] private Canvas backGround;
@@ -10,8 +11,11 @@ public class UIManager : Singleton<UIManager>
     private bool isOnGUI;
 
     private Vector3 cameraStartPosiiton;
+    #endregion
 
 
+
+    #region Unity
     void Awake()
     {
         InitializationComponents(screens);
@@ -25,8 +29,11 @@ public class UIManager : Singleton<UIManager>
         backGround.worldCamera = Camera.main;
         
     }
+    #endregion
 
 
+
+    #region Private Method
     void InitializationComponents(Component[] pref)
     {
         for (int i = 0; i < pref.Length; i++)
@@ -45,6 +52,19 @@ public class UIManager : Singleton<UIManager>
         return obj;
     }
 
+    void ShowSceen(int j)
+    {
+        for (int i = 0; i < screens.Length; i++)
+        {
+            screens[i].gameObject.SetActive(false);
+        }
+        screens[j].gameObject.SetActive(true);
+    }
+    #endregion
+
+
+
+    #region Public Method
     public void StartGameScreen()
     {
         ShowSceen(0);
@@ -63,23 +83,5 @@ public class UIManager : Singleton<UIManager>
         ShowSceen(2);
         Debug.Log("GameOver");
     }
-
-    void ShowSceen(int j)
-    {
-        for (int i = 0; i < screens.Length; i++)
-        {
-            screens[i].gameObject.SetActive(false);
-        }
-        screens[j].gameObject.SetActive(true);
-    }
-
-    public bool IsOnGUI()
-    {
-        return isOnGUI;
-    }
-
-    public void SetScore()
-    {
-
-    }
+    #endregion
 }
